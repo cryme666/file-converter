@@ -9,8 +9,12 @@ def png_to_jpg(png_file_path):
     rgb_img.save(jpg_file_name)
     return jpg_file_name
 
-def jpg_to_png():
-    pass
+def jpg_to_png(jpg_file_path):
+    img = Image.open(jpg_file_path)
+    png_file_name = jpg_file_path.rsplit('.')[0] + '.png'
+    rgb_img = img.convert('RGB')
+    rgb_img.save(png_file_name)
+    return png_file_name
 
 def excel_to_csv(excel_file_path):
     df = pd.read_excel(excel_file_path)
@@ -18,8 +22,11 @@ def excel_to_csv(excel_file_path):
     df.to_csv(csv_file_name,index = False)
     return csv_file_name
 
-def csv_to_excel():
-    pass
+def csv_to_excel(csv_file_path):
+    df = pd.read_csv(csv_file_path)
+    csv_file_name = csv_file_path.rsplit('.')[0] + '.xlsx'
+    df.to_excel(csv_file_name,index = False)
+    return csv_file_name
 
 
 def txt_to_pdf(txt_file_path):
@@ -38,4 +45,4 @@ def txt_to_pdf(txt_file_path):
 
 
 if __name__ == '__main__':
-    txt_to_pdf('uploads/file.txt')
+    csv_to_excel('uploads/Book1.csv')

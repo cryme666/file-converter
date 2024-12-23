@@ -1,11 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
-    <title>File Convertor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter</title>
 </head>
 <body>
-    
+    <h1>Завантажити файл і вибрати тип конвертації</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="file">Виберіть файл для завантаження:</label>
+            <input type="file" id="file" name="file" required>
+        </div>
+        
+        <div>
+            <label for="conversion">Оберіть тип конвертації:</label>
+            <select id="conversion" name="conversion" required>
+                <option value="png_to_jpg">PNG в JPG</option>
+                <option value="jpg_to_png">JPG в PNG</option>
+                <option value="excel_to_csv">XLSX в CSV</option>
+                <option value="csv_to_excel">CSV в XLSX</option>
+                <option value="txt_to_pdf">TXT в PDF</option>
+            </select>
+        </div>
+        
+        <div>
+            <button type="submit">Завантажити і конвертувати</button>
+        </div>
+    </form>
 </body>
 </html>
